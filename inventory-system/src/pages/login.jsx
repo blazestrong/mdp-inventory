@@ -31,44 +31,72 @@ const Login = () => {
   };
 
   return (
+
 <div className="flex justify-center items-center h-screen bg-indigo-600 px-4">
   <div className="max-w-md p-8 shadow-lg bg-white rounded-xl">
-    <div className="bg-red-500 text-white p-4">Tailwind Test</div>
     <h1 className="text-3xl font-bold text-center text-indigo-600 mb-6">MDP Login</h1>
     <form onSubmit={handleSubmit(onLogin)} className="space-y-6">
       {/* Username */}
-      <div>
-        <input
-  type="text"
-  id="username"
-  placeholder="Enter username"
-  {...register('username', { required: 'Username is required' })}
-  className={`w-full px-4 py-3 text-lg border rounded-xl bg-gray-50 shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 ${
-    errors.username
-      ? 'border-red-500 focus:ring-red-400'
-      : 'border-gray-300 focus:ring-blue-500'
-  }`}
-/>
-        {errors.username && (
-          <p className="text-base text-red-500 mt-1">{errors.username.message}</p>
-        )}
-      </div>
+<div className="relative w-full">
+  <input
+    type="text"
+    id="username"
+    placeholder=" "
+    {...register('username', { required: 'Username is required' })}
+    className={`peer w-full px-4 pt-5 pb-2 text-lg text-black bg-white border rounded-xl shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 ${
+      errors.username
+        ? 'border-red-500 focus:ring-red-400'
+        : 'border-gray-300 focus:ring-blue-500'
+    }`}
+  />
+  <label
+    htmlFor="username"
+    className="absolute left-4 top-3 text-black text-base transition-all duration-200 
+      peer-placeholder-shown:top-4 
+      peer-placeholder-shown:text-lg
+      peer-[&:not(:placeholder-shown)]:top-1 
+      peer-[&:not(:placeholder-shown)]:text-sm 
+      peer-focus:top-1 
+      peer-focus:text-sm
+      peer-focus:text-gray-500"
+  >
+    Username
+  </label>
+  {errors.username && (
+    <p className="text-base text-red-500 mt-1">{errors.username.message}</p>
+  )}
+</div>
 
-      {/* Password */}
-      <div>
-        <input
-          type="password"
-          id="password"
-          placeholder="Enter password"
-          {...register('password', { required: 'Password is required' })}
-          className={`w-full px-4 py-3 text-lg border rounded-lg focus:outline-none focus:ring-2 ${
-            errors.password ? 'border-red-500 focus:ring-red-400' : 'focus:ring-blue-400'
-          }`}
-        />
-        {errors.password && (
-          <p className="text-base text-red-500 mt-1">{errors.password.message}</p>
-        )}
-      </div>
+
+<div className="relative w-full">
+  <input
+    type="password"
+    id="password"
+    placeholder=" "
+    {...register('password', { required: 'Password is required' })}
+    className={`peer w-full px-4 pt-5 pb-2 text-lg text-black bg-white border rounded-xl shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 ${
+      errors.password
+        ? 'border-red-500 focus:ring-red-400'
+        : 'border-gray-300 focus:ring-blue-500'
+    }`}
+  />
+  <label
+    htmlFor="password"
+    className="absolute left-4 top-3 text-black text-base transition-all duration-200 
+      peer-placeholder-shown:top-4 
+      peer-placeholder-shown:text-lg
+      peer-[&:not(:placeholder-shown)]:top-1 
+      peer-[&:not(:placeholder-shown)]:text-sm 
+      peer-focus:top-1 
+      peer-focus:text-sm
+      peer-focus:text-gray-500"
+  >
+    Password
+  </label>
+  {errors.password && (
+    <p className="text-base text-red-500 mt-1">{errors.password.message}</p>
+  )}
+</div>
 
       {/* Submit Button */}
       <button
