@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Layout from './components/layout'
 import InventoryPage from './pages/inventorypage'
+import Login from './pages/login'
 import './App.css'
 
 function App() {
@@ -8,9 +9,7 @@ function App() {
 
   return (
     <>
-    <Layout>
-      <InventoryPage />
-    </Layout>
+      <Login />
     </>
   )
 }
